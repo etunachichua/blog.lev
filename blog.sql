@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.11
+-- version 4.4.15.5
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 20, 2016 at 10:14 AM
--- Server version: 5.6.28
--- PHP Version: 5.3.29
+-- Generation Time: Jul 21, 2016 at 05:36 PM
+-- Server version: 5.6.30
+-- PHP Version: 5.5.35
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,6 +23,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `actors`
+--
+
+CREATE TABLE IF NOT EXISTS `actors` (
+  `ID` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `real_name` varchar(255) NOT NULL,
+  `birthdate` varchar(255) NOT NULL,
+  `birth_loc` varchar(255) NOT NULL,
+  `proff` varchar(255) NOT NULL,
+  `height` double NOT NULL,
+  `img` varchar(255) NOT NULL,
+  `biography` text NOT NULL,
+  `raiting` double NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `actors`
+--
+
+INSERT INTO `actors` (`ID`, `name`, `real_name`, `birthdate`, `birth_loc`, `proff`, `height`, `img`, `biography`, `raiting`) VALUES
+(1, 'Barry Pepper', 'Barry Robert Pepper', '04 April 1970', 'Campbell River, British Columbia, Canada', 'Actor', 1.78, 'avatar2.jpeg', 'Pepper creció en la costa oeste de Canadá de manera muy poco convencional. A los cinco años, su familia botó un velero de 15 metros, que habían construido a mano en un granero detrás de su casa. Bautizado Moonlighter, fue su hogar durante los siguientes cinco años, embarcados en una travesía repleta de aventuras por el Pacífico sur. Se valieron de un sextante y de la navegación celeste para encontrar lugares como Fiji, Tahití, Hawái, y las islas Marquesas. Pepper fue educado por sus padres, valiéndose de la educación a distancia, y se matriculaba en colegios públicos cuando era posible, en lugares como Raratonga o Nueva Zelanda. Sin televisión, y confinado a un velero durante viajes entre países que duraban meses, Barry desarrolló intensamente su imaginación y sus habilidades creativas.', 0),
+(7, '22', '', '', '', '', 0, 'http://blog.lev/source/3.jpg', '', 0),
+(8, '22', '', '', '', '', 0, 'http://blog.lev/source/3.jpg', '', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `admin_users`
 --
 
@@ -35,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `admin_users` (
   `block` tinyint(4) NOT NULL DEFAULT '0',
   `user_type` enum('SA','A') DEFAULT 'SA' COMMENT 'SA: Super Admin,A: Admin',
   `active` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `admin_users`
@@ -47,7 +75,8 @@ INSERT INTO `admin_users` (`id`, `username`, `email`, `password`, `salt`, `block
 (7, 'Piqria', 'p.pachulia@hippo.ge', '9c6d065b465a0c47526efd901792943f01bda91eef35592eaaf62561341dc73fhippo', '296f9b7b3ad714', 0, 'SA', 1),
 (10, 'murtazi', 'm.putkaradze@hippo.ge', 'b504aaeac59fbee58fec920502caaa168c37849c805006df81cfb9bc83027d09hippo', '4be21eb874a03b6f', 0, '', 1),
 (11, 'nick', 'nick.periashvili@gmail.com', '91d8b8d54160822930c77dcc72b3015a1fa5266873910699885610030df97c96hippo', '3caaedf63d34e998', 0, 'SA', 1),
-(12, 'ani', 'ani.abramia@hippo.ge', '084f666c34a12305c1d2c8e1d89cc559b6aef66b26aec0f0a0fbfd7bb689e5bbhippo', '7cca3b58332b0cf7', 0, 'SA', 1);
+(12, 'ani', 'ani.abramia@hippo.ge', '084f666c34a12305c1d2c8e1d89cc559b6aef66b26aec0f0a0fbfd7bb689e5bbhippo', '7cca3b58332b0cf7', 0, 'SA', 1),
+(18, 'etuna', 'etunachichua@yahoo.com', 'a75bcd8e3488dd9d389bd29fd3d8e3392952f2f646d482c3159d8e26b4eb0485hippo', '19bab6a918e8ba90', 0, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -665,15 +694,14 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `text_geo` text CHARACTER SET utf8 NOT NULL,
   `text_eng` text CHARACTER SET utf8 NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pages`
 --
 
 INSERT INTO `pages` (`id`, `page`, `name_geo`, `name_eng`, `desc_geo`, `desc_eng`, `text_geo`, `text_eng`, `date`) VALUES
-(4, 'about', 'ჩვენ შესახებ', 'ჩვენ შესახებ', '', '', '<p>Hippo.ge არის <a href="http://icrcorp.ge/">საერთაშორისო კორპორაცია ICR</a>-ის პარტნიორობით შექმნილი კომპანია, რომელიც პირველად საქართველოში გაძლევთ შესაძლებლობას დაიქირავოთ ან ერთიანი გადახდით ან საბანკო განვადებით შეისყიდოთ საყოფაცხოვრებო და საოფისე ავეჯი, ტექნიკა და სხვა ნივთები.</p>\n<p>Hippo  იჯარით სარგებლობის შემთხვევაში შესაძლებლობას სურვილისამებრ აირჩიოთ ნივთი და მცირედი ყოველთვიური გადასახადის სანაცვლოდ, ისარგებლოთ რამდენი ხნითაც გინდათ, საბოლოოდ შეისყიდოთ ან დააბრუნოთ ყოველგვარი ფინანსური ვალდებულების გარეშე. საბანკო პროცედურებისა და ფინანსური ვალდებულებებისგან თავის არიდების გარდა, Hippo მომხმარებელს მეორადი ნივთების რეალიზაციის პრობლემასაც გადაუჭრის.</p>\n<p>ოფიციალურ ვებგვერდზე <a href="../../../">www.hippo.ge</a> განთავსებულია პროდუქციის სრული ასორტიმენტი. ჰიპპოს მომსახურებით სარგებლობა შეუზღუდავია ყველა სრულწლოვანი მოქალაქისთვის. ასევე, ხელსაყრელია დამწყები, თუ უკვე გამოცდილი კომპანიებისთვის, ვისთვისაც მნიშვნელოვანია არ განახორციელოს გაუმართლებელი ინვესტიცია ისეთ ცვეთად და ნაკლებად ლიკვიდურ აქტივებში, როგორიც არის საოფისე ავეჯი და ტექნიკა.</p>\n<p>ჩვენი მომსახურების მიღება შესაძლებელია სახლიდან გაუსვლელად ვებ გვერდზე <a href="../../../">www.hippo.ge</a> და ჩვენი პარტნიორი მაღაზიების შოურუმებში.</p>', '<p>Hippo.ge არის <a href="http://icrcorp.ge/">საერთაშორისო კორპორაცია ICR</a>-ის პარტნიორობით შექმნილი კომპანია, რომელიც პირველად საქართველოში გაძლევთ შესაძლებლობას დაიქირავოთ ან ერთიანი გადახდით ან საბანკო განვადებით შეისყიდოთ საყოფაცხოვრებო და საოფისე ავეჯი, ტექნიკა და სხვა ნივთები.</p>\n<p>Hippo  იჯარით სარგებლობის შემთხვევაში შესაძლებლობას სურვილისამებრ აირჩიოთ ნივთი და მცირედი ყოველთვიური გადასახადის სანაცვლოდ, ისარგებლოთ რამდენი ხნითაც გინდათ, საბოლოოდ შეისყიდოთ ან დააბრუნოთ ყოველგვარი ფინანსური ვალდებულების გარეშე. საბანკო პროცედურებისა და ფინანსური ვალდებულებებისგან თავის არიდების გარდა, Hippo მომხმარებელს მეორადი ნივთების რეალიზაციის პრობლემასაც გადაუჭრის.</p>\n<p>ოფიციალურ ვებგვერდზე <a href="../../../">www.hippo.ge</a> განთავსებულია პროდუქციის სრული ასორტიმენტი. ჰიპპოს მომსახურებით სარგებლობა შეუზღუდავია ყველა სრულწლოვანი მოქალაქისთვის. ასევე, ხელსაყრელია დამწყები, თუ უკვე გამოცდილი კომპანიებისთვის, ვისთვისაც მნიშვნელოვანია არ განახორციელოს გაუმართლებელი ინვესტიცია ისეთ ცვეთად და ნაკლებად ლიკვიდურ აქტივებში, როგორიც არის საოფისე ავეჯი და ტექნიკა.</p>\n<p>ჩვენი მომსახურების მიღება შესაძლებელია სახლიდან გაუსვლელად ვებ გვერდზე <a href="../../../">www.hippo.ge</a> და ჩვენი პარტნიორი მაღაზიების შოურუმებში.</p>', '2015-12-11 16:40:37'),
-(5, 'faqs', 'ხშირად დასმული კითხვები', 'ხშირად დასმული კითხვები', '', '', '<p>კითხვა/პასუხი</p>', '<p>კითხვა/პასუხი</p>', '2015-12-11 16:42:43'),
+(5, 'faqs', 'ხშირად დასმული კითხვები', '', 'სფსფსდფგdfsdf', '', '<p>sasfsfsaf</p>', '', '2015-12-11 16:42:43'),
 (6, 'contact', 'contact', 'contact', '', '', '<p>contact</p>', '<p>contact</p>', '2015-12-11 16:51:28'),
 (7, 'partners', 'partners', 'partners', '', '', '<p>partners</p>', '<p>partners</p>', '2015-12-11 16:51:44'),
 (8, 'rules', 'საიტის მოხმარების და რეგისტრაციის წესები', 'საიტის მოხმარების და რეგისტრაციის წესები', '', '', '<p>ვებ-გვერდზე  www.hippo.ge  არსებული სარეგისტრიცაო ფორმის შევსებით მონაცემთა სუბიექტი (შემდგომში მომხმარებელი) თანახმაა და აძლევს უფლებას შპს „ჰიპპოს“ (საიდენტიფიკაციო კოდი 405126457), რომ დაამუშავოს მისი პერსონალური მონაცემები, <br /><br />კერძოდ: </p>\n<p>- სახელი<br />- გვარი<br />- პირადი ნომერი<br />- დაბადების თარიღი<br />- სქესი<br />- ტელეფონის ნომერი<br />- ელექტრონული ფოსტა<br />- მისამართი<br />- საქმიანობის სფერო<br />- შემოსავალი<br />- სამუშაო სტატუსი<br />-საკრედიტო ინფორმაცია სს კრედიტინფო საქართველოს (ს.კ.204470740) ბაზაში გადამოწმებით <br />- და სხვა მონაცემები.</p>\n<p><br />ზემოთ აღნიშნულ პერსონალურ მონაცემთა დამუშავება ხორციელდება მომხმარებლის განაცხადის განხილვის (მომსახურების გაწევის) და ნივთის გაქირავებაზე გადაწყვეტილების მიღების მიზნით. თუ მომხმარებელი უარს განაცხადებს აღნიშნული მონაცემების მიწოდებაზე, შპს „ჰიპპო“ უფლებას იტოვებს არ განიხილოს ეს განაცხადი.  მომხმარებელი ასევე თანახმაა, რომ შპს „ჰიპპომ“ შეამოწმოს მონაცემთა სუბიექტის მიერ წარდგენილი ინფორმაციის სისწორე.მომხმარებელი თანახმაა, ნებისმიერ დროს, შპს „ჰიპპოს“ მიერ შემდგომი შეტყობინების გარეშე, ნებისმიერი მარკეტინგული ან/და სხვა მიზნებისთვის (რაც შეზღუდვის გარეშე მოიცავს ნებისმიერ სახის სარეკლამო კამპანიას ან/და პრომო აქციას) შპს „ჰიპპოსგან“ ან/და სხვა პირებისგან მიიღოს ცნობა, წერილი, მოკლე ტექსტური ან ნებისმიერი სხვა შეტყობინება, ელექტრონული ფოსტა ან/და სხვა ნებისმიერი ფორმით მიწოდებული ნებისმიერი ინფორმაცია, მომხმარებლის მიერ განაცხადში მითითებულ რეკვიზიტებზე. ამასთან, ზემოთაღნიშნული რეკვიზიტების ცვლილების შემთხვევაში, შეცვლილ რეკვიზიტებთან მიმართებაში შპს „ჰიპპო“ უფლებამოსილი იქნება, გამოიყენოს წინამდებარე პუნქტით მისთვის მინიჭებული უფლებამოსილება მომხმარებლის შემდგომი თანხმობის გარეშე.</p>', '<p>ვებ-გვერდზე  <a href="../../../">www.hippo.ge</a>  არსებული სარეგისტრიცაო ფორმის შევსებით მონაცემთა სუბიექტი (შემდგომში მომხმარებელი) თანახმაა და აძლევს უფლებას <strong>შპს „ჰიპპოს“</strong> (საიდენტიფიკაციო კოდი 405126457), რომ დაამუშავოს მისი პერსონალური მონაცემები, <br /><br /><strong>კერძოდ:</strong> </p>\n<ul>\n<li>სახელი</li>\n<li>გვარი</li>\n<li>პირადი ნომერი</li>\n<li>დაბადების თარიღი</li>\n<li>სქესი</li>\n<li>ტელეფონის ნომერი</li>\n<li>ელექტრონული ფოსტა</li>\n<li>მისამართი</li>\n<li>საქმიანობის სფერო</li>\n<li>შემოსავალი</li>\n<li>სამუშაო სტატუსი</li>\n<li>საკრედიტო ინფორმაცია სს კრედიტინფო საქართველოს (ს.კ.204470740) ბაზაში გადამოწმებით</li>\n<li>და სხვა მონაცემები.</li>\n</ul>\n<p><br />ზემოთ აღნიშნულ პერსონალურ მონაცემთა დამუშავება ხორციელდება მომხმარებლის განაცხადის განხილვის (მომსახურების გაწევის) და ნივთის გაქირავებაზე გადაწყვეტილების მიღების მიზნით. თუ მომხმარებელი უარს განაცხადებს აღნიშნული მონაცემების მიწოდებაზე, შპს „ჰიპპო“ უფლებას იტოვებს არ განიხილოს ეს განაცხადი.  მომხმარებელი ასევე თანახმაა, რომ შპს „ჰიპპომ“ შეამოწმოს მონაცემთა სუბიექტის მიერ წარდგენილი ინფორმაციის სისწორე.მომხმარებელი თანახმაა, ნებისმიერ დროს, შპს „ჰიპპოს“ მიერ შემდგომი შეტყობინების გარეშე, ნებისმიერი მარკეტინგული ან/და სხვა მიზნებისთვის (რაც შეზღუდვის გარეშე მოიცავს ნებისმიერ სახის სარეკლამო კამპანიას ან/და პრომო აქციას) შპს „ჰიპპოსგან“ ან/და სხვა პირებისგან მიიღოს ცნობა, წერილი, მოკლე ტექსტური ან ნებისმიერი სხვა შეტყობინება, ელექტრონული ფოსტა ან/და სხვა ნებისმიერი ფორმით მიწოდებული ნებისმიერი ინფორმაცია, მომხმარებლის მიერ განაცხადში მითითებულ რეკვიზიტებზე. ამასთან, ზემოთაღნიშნული რეკვიზიტების ცვლილების შემთხვევაში, შეცვლილ რეკვიზიტებთან მიმართებაში შპს „ჰიპპო“ უფლებამოსილი იქნება, გამოიყენოს წინამდებარე პუნქტით მისთვის მინიჭებული უფლებამოსილება მომხმარებლის შემდგომი თანხმობის გარეშე.</p>', '2015-12-17 04:29:14'),
@@ -681,7 +709,7 @@ INSERT INTO `pages` (`id`, `page`, `name_geo`, `name_eng`, `desc_geo`, `desc_eng
 (10, 'Payment Methods', 'გადახდის მეთოდები', 'Payment Methods', '', '', '<p><strong>TBC PAY</strong></p>\n<p>TBC PAY ტერმინალის მთავარი გვერდიდან აირჩევთ <strong>სხვადასხვა. </strong>შედიხართ <strong>კომერციული საიტები</strong>ს გვერდზე და ირჩევთ <strong>Hippo</strong>.</p>', '', '2016-04-23 07:07:35'),
 (11, 'Delivery Terms', 'მიწოდების პირობები', 'Delivery Terms', '', '', '', '', '2016-04-23 07:59:07'),
 (12, 'Insurance', 'დაზღვევის პირობები', 'Insurance', '', '', '<p><img src="../../../gebo/file-manager/upload/image/dazgveva.PNG" alt="" width="1113" height="629" /></p>', '<p><img src="../../../gebo/file-manager/upload/image/dazgveva.PNG" alt="" width="1113" height="629" /></p>', '2016-05-17 05:20:12'),
-(13, '', '', '', '', '', '', '', '2016-05-17 05:20:26');
+(14, 'about', 'ჩვენს შესახებ', '', '', '', '<p>ასფასფ</p>', '', '2016-07-20 13:24:09');
 
 -- --------------------------------------------------------
 
@@ -2097,6 +2125,12 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `personalID`, `balanse`, `de
 --
 
 --
+-- Indexes for table `actors`
+--
+ALTER TABLE `actors`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `admin_users`
 --
 ALTER TABLE `admin_users`
@@ -2177,10 +2211,15 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `actors`
+--
+ALTER TABLE `actors`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+--
 -- AUTO_INCREMENT for table `admin_users`
 --
 ALTER TABLE `admin_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `category`
 --
@@ -2220,7 +2259,7 @@ ALTER TABLE `main`
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `sidebar_menu`
 --
