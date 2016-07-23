@@ -219,7 +219,8 @@
                         "table contextmenu directionality emoticons paste textcolor responsivefilemanager code"
                     ],
                     toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect",
-                    toolbar2: "| responsivefilemanager | image | media | link unlink anchor | print preview code  | youtube | qrcode | flickr | picasa | forecolor backcolor | easyColorPicker",
+                    toolbar2: "| responsivefilemanager | image | media | link unlink anchor | print preview code  | youtube | qrcode | flickr | picasa | forecolor backcolor | easyColorPicker | fontsizeselect",
+                    fontsize_formats: "8px 9px 10px 11px 12px 26px 36px 44px 72px",
                     image_advtab: true,
                     relative_urls: false,
                     remove_script_host: false,

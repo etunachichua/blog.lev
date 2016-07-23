@@ -116,7 +116,7 @@
                                               <div class="row">
                                                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                                                         <div class="input-group input-icon">
-                                                            <input type="text" name="birthdate" class="form-control">
+                                                            <input type="date" name="birthdate" class="form-control">
                                                         </div>
                                                     </div>
                                               </div>

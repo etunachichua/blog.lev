@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Blog extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,7 +18,7 @@ class Home extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	
+
 	 public function __construct() {
         parent::__construct();
 
@@ -26,29 +26,15 @@ class Home extends CI_Controller {
         $this->load->library('pagination');
         $this->load->helper("url");
         $this->load->helper('date');
-         $this->load->helper('text');
     }
 
 	public function index(){
 
-		$data['blogs'] = $data['blogs'] = $this->blog_model->getBlogData();  
+		$data['blogs'] =  
 		$this->load->view('inc/head');
 		$this->load->view('inc/header');
-		$this->load->view('index', $data);
+		$this->load->view('blog');
 		$this->load->view('inc/footer');
 		$this->load->view('inc/foot');
 	}
-
-
-	public function view($id){
-		$this->id=$id;
-		$data['blog'] = $this->blog_model->getBlog($this->id); 
-		$data['randBlog'] = $this->blog_model->getRandomBlog(); 
-		$this->load->view('inc/head');
-		$this->load->view('inc/header');
-		$this->load->view('single_blog', $data);
-		$this->load->view('inc/footer');
-		$this->load->view('inc/foot');
-	}
-
 }

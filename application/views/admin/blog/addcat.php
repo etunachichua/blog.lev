@@ -34,6 +34,7 @@
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="img/ico/apple-touch-icon-57-precomposed.png">
         <link rel="icon" href="img/ico/favicon.ico" type="image/png">
+        <link rel="stylesheet" href="<?=base_url()?>adm/plugins/chosen/chosen.css" />
         <!-- Windows8 touch icon ( http://www.buildmypinnedsite.com/ )-->
         <meta name="msapplication-TileColor" content="#3399cc" />
     </head>
@@ -82,131 +83,49 @@
                             <div class="panel panel-default toggle panelMove panelRefresh">
                                 <!-- Start .panel -->
                                 <div class="panel-heading">
-                                    <h4 class="panel-title">ადმინის რედაქტირება</h4>
+                                    <h4 class="panel-title">ბლოგის კატეგორიის დამატება</h4>
                                 </div>
                                 <div class="panel-body pb0">
                                    
-                                    <form id="edit" class="form-horizontal group-border hover-stripped" role="form" action="<?= base_url() ?>admin/actors/editdata/" enctype="multipart/form-data">
-                                        <input type="hidden" name="id" id="id" value="<?=$actor->ID?>"/>
+                                    <form id="add" class="form-horizontal group-border hover-stripped" role="form" action="<?= base_url() ?>admin/blog/addCatdata/" enctype="multipart/form-data">
+                                        <input type="hidden" name="id" id="id" />
                                         <div class="form-group">
-
                                             <label for="" class="col-lg-2 col-md-3  control-label">სახელი</label>
                                             <div class="row">
                                                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                                                     <div class="input-group input-icon">
-                                                        <input type="text" name="name" class="form-control" value="<?= $actor->name ?>">
+                                                        <input type="text" name="name" class="form-control" id="name">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="form-group">
-                                            <label for="" class="col-lg-2 col-md-3  control-label">ნამდვილი სახელი</label>
+                                               <label for="" class="col-lg-2 col-md-3  control-label">აღწერა</label>
                                               <div class="row">
                                                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                                                         <div class="input-group input-icon">
-                                                            <input type="text" name="real_name" class="form-control" value="<?= $actor->real_name ?>">
-                                                        </div>
-                                                    </div>
-                                              </div> 
-                                        </div>
-                                        <div class="form-group">
-
-                                               <label for="" class="col-lg-2 col-md-3  control-label">დაბადების თარიღი</label>
-                                              <div class="row">
-                                                   <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                                                        <div class="input-group input-icon">
-                                                            <input type="date" name="birthdate" class="form-control" value="<?= $actor->birthdate ?>">
-                                                        </div>
-                                                    </div>
-                                              </div>
-
-                                        </div>
-                                        <div class="form-group">
-
-                                              <label for="" class="col-lg-2 col-md-3  control-label">დაბადების ადგილი</label>
-                                              <div class="row">
-                                                   <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                                                        <div class="input-group input-icon">
-                                                            <input type="text" name="birth_loc" class="form-control" value="<?= $actor->birth_loc ?>">
-                                                        </div>
-                                                    </div>
-                                              </div>
-
-                                        </div>
-                                        <div class="form-group">
-
-                                              <label for="" class="col-lg-2 col-md-3  control-label">პროფესია</label>
-                                              <div class="row">
-                                                   <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                                                        <div class="input-group input-icon">
-                                                            <input type="text" name="proff" class="form-control" value="<?= $actor->proff ?>">
-                                                        </div>
-                                                    </div>
-                                              </div>
-
-                                        </div>
-                                        <div class="form-group">
-
-                                              <label for="" class="col-lg-2 col-md-3  control-label">სიმაღლე</label>
-                                              <div class="row">
-                                                   <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                                                        <div class="input-group input-icon">
-                                                            <input type="text" name="height" class="form-control" value="<?= $actor->height ?>">
-                                                        </div>
-                                                    </div>
-                                              </div>
-
-                                        </div>
-                                        <div class="form-group">
-
-                                              <label for="" class="col-lg-2 col-md-3  control-label">რეიტინგი</label>
-                                              <div class="row">
-                                                   <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                                                        <div class="input-group input-icon">
-                                                            <input type="text" name="raiting" class="form-control" value="<?= $actor->raiting ?>">
+                                                            <input type="text" name="descrip" class="form-control" id="descrip">
+                                                            
                                                         </div>
                                                     </div>
                                               </div>
                                         </div>
-                                        <div class="form-group">
 
-                                              <label for="" class="col-lg-2 col-md-3  control-label">ბიოგრაფია</label>
-                                              <div class="row">
-                                                   <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                                                        <div class="input-group input-icon">
-                                                            <textarea name="biography" class="form-control" rows="8"><?= $actor->biography ?></textarea>
-                                                        </div>
-                                                    </div>
-                                              </div>
-                                            
-                                        </div>
-
-                                         <div class="form-group">
-
-                                              <label for="" class="col-lg-2 col-md-3  control-label">სურათი</label>
-                                              <div class="row">
-                                                   <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                                                        <div class="input-group input-icon">
-                                                            <input name="img" id="img"  type="text" class="form-control">
-                                                            <span class="input-group-btn">
-                                                               <!--  <a class="btn btn-default" data-toggle="modal" data-target="#imgmodal">არჩევა</a> -->
-                                                        <button class="btn btn-default mr5 mb10" data-toggle="modal" type="button" data-target="#myLargeModal"> არჩევა</button>
-                                                            </span>
-
-
-                                                        </div>
-                                                    </div>
-                                              </div>
-                                            
-                                        </div>
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-10">
                                                 <button id="save" type="button" class="save btn btn-default">შენახვა</button>
                                             </div>
                                         </div>
 
-                                        <?php if(isset($error)){echo $error;}?>
+
+                                      
                                     </form>
+
+                                     
+
+
+
                                 </div>
                             </div>
                             <!-- End .panel -->
@@ -218,7 +137,6 @@
                 <!-- End contentwrapper -->
             </div>
             <!-- End #content -->
-
 
             <div class="modal fade" id="myLargeModal" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
@@ -240,6 +158,9 @@
                     </div>
                 </div>
                 <!-- /.modal -->
+
+
+
             <?php $this->load->view('admin/inc/footer') ?>
             <!-- End #footer  -->
         </div>
@@ -305,17 +226,60 @@
         <script src="<?= base_url() ?>adm/plugins/ui/notify/jquery.gritter.js"></script>
         <script src="<?= base_url() ?>adm/js/jquery.supr.js"></script>
         <script src="<?= base_url() ?>adm/js/main.js"></script>
-        <script src="<?= base_url() ?>adm/plugins/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-        <!-- TinyMce WYSIWG editor -->
-	<script src="<?= base_url() ?>adm/plugins/tinymce/jquery.tinymce.min.js"></script>
+      
+        
+     
+
+    <script type="text/javascript" src="<?= base_url() ?>adm/plugins/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+    <script src="<?= base_url() ?>adm/plugins/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+    <script src="<?=base_url()?>adm/plugins/chosen/chosen.jquery.min.js"></script>  
+    <script src="<?= base_url() ?>adm/plugins/tinymce/jquery.tinymce.min.js"></script>
+    <script type="text/javascript">
+          
+            $("#name").inputMeter( {maxLength: 30, warnLength: 20} );
+            $("#descrip").inputMeter( {maxLength: 150, warnLength: 120} );
+         
+
+
+
+ $(document).ready(function(){
+        $('.fancy-select').fancySelect();
+                $("#basic-datepicker").datepicker();
+                $('textarea#text').tinymce({
+                    // Location of TinyMCE script
+                    script_url: '/adm/plugins/tinymce/tinymce.min.js',
+                    // General options
+                    selector: "textarea",
+                    theme: "modern",
+                    height: 500,
+                    plugins: [
+                        "advlist autolink link image lists charmap print preview hr anchor pagebreak",
+                        "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
+                        "table contextmenu directionality emoticons paste textcolor responsivefilemanager code"
+                    ],
+                    toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect",
+                    toolbar2: "| responsivefilemanager | image | media | link unlink anchor | print preview code  | youtube | qrcode | flickr | picasa | forecolor backcolor | easyColorPicker",
+                    image_advtab: true,
+                    relative_urls: false,
+                    remove_script_host: false,
+                    document_base_url: "<?=base_url()?>",
+                    external_filemanager_path: "/filemanager/",
+                    filemanager_title: "Responsive Filemanager",
+                    external_plugins: {"filemanager": "/filemanager/plugin.min.js"}
+                });
+        
+});
+  </script>
+
+
         <script>
             
             $(document).ready(function () {
                 $(".save").on("click", function () {
                     $.ajax({
                         type: "POST",
-                        url: $("#edit").attr('action'),
-                        data: $("#edit").serialize(),
+                        url: $("#add").attr('action'),
+                        data: $("#add").serialize(),
                         cache: false,
                         success: function (json) {
                             var arr = JSON.parse(json);
@@ -343,5 +307,7 @@
                 });
             });
         </script>
+
+
     </body>
 </html>

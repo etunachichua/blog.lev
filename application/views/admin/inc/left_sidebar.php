@@ -70,6 +70,16 @@
                                     
                                         </ul>
                                     </li>
+                                    <li>
+                                        <a href="#"><i class="s16 icomoon-icon-table-2"></i><span class="txt">ბლოგი</span></a>
+                                        <ul class="sub">
+                                            <li><a href="<?=admin_url()?>blog"><i class="s16 icomoon-icon-arrow-right-3"></i><span class="txt">სტატიები</span></a>
+                                            </li>
+                                           
+                                            <li><a href="<?=admin_url()?>blog/cats"><i class="s16 icomoon-icon-arrow-right-3"></i><span class="txt">კატეგორიები</span></a>
+                                            </li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
