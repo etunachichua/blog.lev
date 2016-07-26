@@ -14,34 +14,16 @@
 		<script src="<?=base_url()?>adm/js/bootstrap/bootstrap.js"></script>
  	    <script src="<?= base_url() ?>blogg/js/main.js"></script>      
 		<script type="text/javascript">
-			// $(document).ready(function() {
-			// //   $('ul.nav li.dropdown').hover(function() {
-			// //   $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
-			// // }, function() {
-			// //   $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
-			// // });
-			//  };
 
-			 $(document).ready(function(){
-			    $('ul.nav li.dropdown').hover(function() {
-				  $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn(200);
-				}, function() {
-				  $(this).find('.dropdown-menu').stop(true, true).delay(300).fadeOut(200);
-				});
-
-
-
-
-			    $("ul.nav li.dropdown").mouseout(function(){
-			        $(this).find('.dropdown-menu').css("display", "none");
-			    });
-
-
-
+			$(document).ready(function(){
+				$('.dropdown').mouseover(function(){
+					$('.dropdown-menu').css({display:'block'});
+				})
+				$('.dropdown').mouseout(function(){
+					$('.dropdown-menu').css({display:'none'});
+				})
 
 			});
-
-
 
 		</script>
     </body>

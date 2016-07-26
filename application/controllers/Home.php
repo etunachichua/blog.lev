@@ -44,8 +44,6 @@ class Home extends CI_Controller {
 		$this->id=$id;
 		$data['blog'] = $this->blog_model->getBlog($this->id); 
 		$data['randBlog'] = $this->blog_model->getRandomBlog(); 
-		$this->load->view('inc/head');
-		$this->load->view('inc/header');
 		$this->load->view('single_blog', $data);
 		$this->load->view('inc/footer');
 		$this->load->view('inc/foot');

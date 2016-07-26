@@ -40,6 +40,14 @@ class blog_model extends CI_Model {
         return $this->db->get('blog')->result();
     }
 
+
+     public function getBlogByCat($cat_id) {
+
+        $this->db->where("cat",$cat_id );
+        
+        return $this->db->get('blog')->result();
+    }
+
     public function getRandomBlog() {
 
          $this->db->order_by('id', 'RANDOM');

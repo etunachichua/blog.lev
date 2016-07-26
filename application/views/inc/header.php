@@ -19,24 +19,16 @@
             <li class="dropdown">
              blog <b class="caret"></b>
               <ul class="dropdown-menu">
-                <li><a href="#">category 1</a></li>
-                <li><a href="#">category 2</a></li>
-                <li><a href="#">category 3</a></li>
-                <li><a href="#">category 4</a></li>
-                <li><a href="#">category 5</a></li>
-                <li><a href="#">category 6</a></li>
-                <li><a href="#">category 7</a></li>
-                <li><a href="#">category 8</a></li>
-                <li><a href="#">category 9</a></li>
-                <li><a href="#">category 10</a></li>
-                <li><a href="#">category 11</a></li>
-                <li><a href="#">category 12</a></li>
-                <li><a href="#">category 13</a></li>
-                <li><a href="#">category 14</a></li>
-                <li><a href="#">category 15</a></li>
-                <li><a href="#">category 16</a></li>
-                <li><a href="#">category 17</a></li>
-                <li><a href="#">category 18</a></li>
+
+                <?php $cats = $this->blog_model->getBlogCatData();
+                    foreach ($cats as $cat) {
+
+
+                 ?>
+                <li ><a href="<?=base_url()?>cat/index/<?=$cat->ID?>"><?=$cat->title?></a></li>
+              <?php
+                  }
+              ?>
               </ul>
             </li>
 

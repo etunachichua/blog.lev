@@ -7,10 +7,30 @@
 	            <a class="navbar-brand" href="<?=base_url()?>">WebSite Name</a>
 	          </div>
 	          <ul class="nav navbar-nav" >
-	            <li class="active"><a href="<?=base_url()?>">Home</a></li>
-	            <li><a href="<?=base_url()?>blog">blog</a></li>
-	            <li><a href="#">contact</a></li>
-	            <li><a href="#">Gallery</a></li>
+
+
+
+	          <?php $cats = $this->blog_model->getBlogCatData();
+                    foreach ($cats as $cat) {
+
+ 							if ($this->uri->segment(1) == 'cat' &&  $this->uri->segment(2) == 'index' && $this->uri->segment(3) == $cat->ID) {
+
+                                $active = 'class=" active"';
+                            } else {
+                                $active = '';
+                            } 
+
+                 ?>
+                <li <?=$active?>>
+
+                <a href="<?=base_url()?>cat/index/<?=$cat->ID?>"><?=$cat->title?></a>
+
+
+                </li>
+              <?php
+                  }
+              ?>
+
 	          </ul>
 	        </div>
 	      </nav>

@@ -18,7 +18,13 @@ header .navbar-collapse {
     overflow-x: visible;
     padding-right: 0px;
     padding-left: 0px;
-  }
+}
+header nav .container-fluid {
+
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
 header .navbar-inverse .navbar-nav > li > a {
     color: white;
     text-transform: uppercase;
@@ -66,7 +72,7 @@ header .body-wrap:after {
 */
 
 
-header .nav > li.dropdown:hover {
+header .nav > li.dropdown:hover,header .nav > li.dropdown:hover {
   position: static; 
 }
 header .dropdown-menu{
@@ -74,11 +80,12 @@ header .dropdown-menu{
    box-shadow: none!important;
 }
 header .nav > li.dropdown:hover .dropdown-menu {
+  padding: 0;
   height: auto;
   width: 101%;
   margin-right: -2px;
-  margin-top: 2px;
-  text-align: center; 
+  /*margin-top: 2px;*/
+  text-align: right; 
   left:auto; 
   right:0; 
   background-color: #f2f2f2;
@@ -90,6 +97,7 @@ header .dropdown-menu>li {
 }
 header .nav > li.dropdown:hover .dropdown-menu li a{
   color: #505050;
+  padding: 4px 10px;
   text-transform: capitalize;
   font-weight: 600;
 }
