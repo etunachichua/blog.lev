@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 21, 2016 at 05:36 PM
+-- Generation Time: Jul 27, 2016 at 02:44 PM
 -- Server version: 5.6.30
 -- PHP Version: 5.5.35
 
@@ -77,6 +77,59 @@ INSERT INTO `admin_users` (`id`, `username`, `email`, `password`, `salt`, `block
 (11, 'nick', 'nick.periashvili@gmail.com', '91d8b8d54160822930c77dcc72b3015a1fa5266873910699885610030df97c96hippo', '3caaedf63d34e998', 0, 'SA', 1),
 (12, 'ani', 'ani.abramia@hippo.ge', '084f666c34a12305c1d2c8e1d89cc559b6aef66b26aec0f0a0fbfd7bb689e5bbhippo', '7cca3b58332b0cf7', 0, 'SA', 1),
 (18, 'etuna', 'etunachichua@yahoo.com', 'a75bcd8e3488dd9d389bd29fd3d8e3392952f2f646d482c3159d8e26b4eb0485hippo', '19bab6a918e8ba90', 0, NULL, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blog`
+--
+
+CREATE TABLE IF NOT EXISTS `blog` (
+  `blog` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `descrip` varchar(500) NOT NULL,
+  `text` text NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `img` varchar(255) NOT NULL,
+  `ID` int(11) NOT NULL,
+  `cat` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `blog`
+--
+
+INSERT INTO `blog` (`blog`, `name`, `descrip`, `text`, `date`, `img`, `ID`, `cat`) VALUES
+('blog8', 'This time it’s all about the knee-high boots and the pencil skirt that I wanted to wear', ' ', '<p><span style="text-decoration: underline;"><em>vsdgwsdgvsdgdgrd</em></span></p>', '0000-00-00 00:00:00', 'http://blog.lev/source/blog1.jpg', 1, 6),
+('blog2', 'This time it’s all about the knee-high boots and the pencil skirt that I wanted to wear', 'blog2 desc', 'blog2 text', '0000-00-00 00:00:00', 'http://blog.lev/source/blog2.jpg', 3, 6),
+('blog2', 'This time it’s all about the knee-high boots and the pencil skirt that I wanted to wear', 'blog2 desc', 'blog2 text', '0000-00-00 00:00:00', 'http://blog.lev/source/blog3.jpg', 4, 7),
+('blog', 'This time it’s all about the knee-high boots and the pencil skirt that I wanted to wear', 'descr', 'text', '2016-07-13 20:00:00', 'http://blog.lev/source/blog4.jpg', 5, 8),
+('blog cat', 'This time it’s all about the knee-high boots and the pencil skirt that I wanted to wear', 'blog desc', '<p>jkcnasjkcnakj</p>', '2016-07-23 20:00:00', 'http://blog.lev/source/blog1.jpg', 9, 2),
+('lorem', 'ჩემი საყვრელი დრო შემოდგომაა. უფრო სწორად სექტემბერ-ოქტომბრის შუალედი, როცა არც ცივა არც ცხელა.. გრილა და ს', 'ჩემი საყვარელი დრო შემოდგომაა. უფრო სწორად სექტემბერ-ოქტომბრის შუალედი, როცა არც ცივა არც ცხელა.. გრილა და ს', '<p><img style="float: left;" title="რა ჩავიცვათ სექტემბერში? ( მოდურად,\r\nიაფად და ლამაზად ჩაცმის ხელოვნება)" src="http://server3.intermedia.ge/article_images/small/201309/2013091312023095.jpg" alt="image" /><strong><span style="background-color: #ffff00;">ჩემი საყვარელი დრო შემოდგომაა.</span> </strong>უფრო სწორად სექტემბერ-ოქტომბრის შუალედი, როცა არც ცივა არც ცხელა.. გრილა და საშუალება გეძლევა ატარო ერთი შეხედვით სრულიად შეუსაბამო სამოსი ერთად.</p>\r\n<div style="text-align: center;">მაგალითად შიფონის სარაფანი და ბათინკები, კარდიგანი და ტილოს მოკლე კაბა.. მაუსურზე დაუდევრად გადაცმული მსხვილად ნაქსოვი სვიტერი, ფეხზე კი სანდლები. მოკლედ შემოდგომა ის პერიოდია როცა ჩაცმა-დახურვის კუთხით ყველაზე მეტად "იღიძებს" კრეატივი. ასე რომ ჩემო კარგებო, ყველა ქალისთვის აქტუალურზე აქტუალურ საკითხს "რა ჩავიცვათ" შემოდგომაზე</div>\r\n<p>ყველაზე მარტივი გადაწყვეტა მოეძებნება. დღეს მინდა უშუალოდ კარდიგანების თემას შევეხო, იმიტომ რომ ნაქსოვი ჟაკეტი ეს ისეთი რამაა, რომელიც ყველაზე ქალური, კომფორტული და მოხდენილი აუტფიტის შექმნას უწყობს ხელს. მისი ტარება შეგიძლიათ ჯინსებზე,</p>\r\n<h2>ტილოს ან შიფონის მოკლე კაბაზე, შორტებზე და ა.შ გთავაზობთ რამოდენიმე ორიგინალურ ლუქს რომელიც დაგეხმარებათ იმაში რომ კარდიგანთან სატარებელი სხვადასხვა სამოსი და აქსესუარი მარტივად შეარჩიოთ.</h2>', '2016-07-20 20:00:00', 'http://blog.lev/source/blog3.jpg', 10, 2),
+('lorem', 'ჩემი საყვრელი დრო შემოდგომაა. უფრო სწორად სექტემბერ-ოქტომბრის შუალედი, როცა არც ცივა არც ცხელა.. გრილა და ს', 'ჩემი საყვარელი დრო შემოდგომაა. უფრო სწორად სექტემბერ-ოქტომბრის შუალედი, როცა არც ცივა არც ცხელა.. გრილა და ს', '<p style="text-align: center;"><img style="float: left;" title="რა ჩავიცვათ სექტემბერში? ( მოდურად,\r\nიაფად და ლამაზად ჩაცმის ხელოვნება)" src="http://server3.intermedia.ge/article_images/small/201309/2013091312023095.jpg" alt="image" /><strong><span style="background-color: #ffff00;">&nbsp; &nbsp;ჩემი საყვარელი დრო შემოდგომაა.</span> </strong>უფრო სწორად სექტემბერ-ოქტომბრის შუალედი, &nbsp; &nbsp;როცა არც ცივა არც ცხელა.. გრილა და საშუალება გეძლევა ატარო ერთი შეხედვით &nbsp; &nbsp; &nbsp;სრულიად შეუსაბამო სამოსი ერთად.</p>\r\n<div style="text-align: center; padding-left: 30px;">მაგალითად შიფონის სარაფანი და ბათინკები, კარდიგანი და ტილოს მოკლე კაბა.. &nbsp;მაუსურზე დაუდევრად გადაცმული მსხვილად ნაქსოვი სვიტერი, ფეხზე კი სანდლები. მოკლედ შემოდგომა ის პერიოდია როცა ჩაცმა-დახურვის კუთხით ყველაზე მეტად "იღიძებს" კრეატივი. ასე რომ ჩემო კარგებო, ყველა ქალისთვის აქტუალურზე აქტუალურ საკითხს "რა ჩავიცვათ" შემოდგომაზე</div>\r\n<p style="padding-left: 30px; text-align: center;">&nbsp; &nbsp;ყველაზე მარტივი გადაწყვეტა მოეძებნება. დღეს მინდა უშუალოდ კარდიგანების &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; თემას შევეხო, იმიტომ რომ ნაქსოვი ჟაკეტი ეს ისეთი რამაა, რომელიც ყველაზე &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ქალური, კომფორტული და მოხდენილი აუტფიტის შექმნას უწყობს ხელს. მისი &nbsp;ტარება შეგიძლიათ ჯინსებზე,</p>\r\n<h2 style="padding-left: 30px; text-align: center;">&nbsp; &nbsp;ტილოს ან შიფონის მოკლე კაბაზე, შორტებზე და ა.შ &nbsp; &nbsp; &nbsp;გთავაზობთ რამოდენიმე ორიგინალურ ლუქს რომელიც &nbsp; &nbsp;დაგეხმარებათ იმაში რომ კარდიგანთან სატარებელი &nbsp; &nbsp; &nbsp; &nbsp;სხვადასხვა სამოსი და აქსესუარი მარტივად &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; შეარჩიოთ.</h2>', '2016-07-20 20:00:00', 'http://blog.lev/source/blog3.jpg', 11, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blog_cats`
+--
+
+CREATE TABLE IF NOT EXISTS `blog_cats` (
+  `ID` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `descrip` varchar(500) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `blog_cats`
+--
+
+INSERT INTO `blog_cats` (`ID`, `title`, `descrip`) VALUES
+(2, 'cat3', 'cat2 desc'),
+(5, 'cat2', ''),
+(6, 'cat4', ''),
+(7, 'cat6', ''),
+(8, 'cat7', '');
 
 -- --------------------------------------------------------
 
@@ -2137,6 +2190,18 @@ ALTER TABLE `admin_users`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `blog`
+--
+ALTER TABLE `blog`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `blog_cats`
+--
+ALTER TABLE `blog_cats`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
@@ -2220,6 +2285,16 @@ ALTER TABLE `actors`
 --
 ALTER TABLE `admin_users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
+--
+-- AUTO_INCREMENT for table `blog`
+--
+ALTER TABLE `blog`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+--
+-- AUTO_INCREMENT for table `blog_cats`
+--
+ALTER TABLE `blog_cats`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `category`
 --
